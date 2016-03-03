@@ -1,0 +1,4 @@
+name: フックポイント確認プラグイン
+code: HookPoint
+version: 1.0.0
+event: HookPointEvent
