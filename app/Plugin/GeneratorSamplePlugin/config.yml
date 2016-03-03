@@ -1,0 +1,6 @@
+name: generator生成サンプル
+code: GeneratorSamplePlugin
+version: 1.0.0
+event: GeneratorSamplePluginEvent
+service:
+    - GeneratorSamplePluginServiceProvider

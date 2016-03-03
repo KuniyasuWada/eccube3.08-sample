@@ -1,0 +1,5 @@
+name: プラグインジェネレータ
+code: PluginGenerator
+version: 1.0.0
+service:
+  - PluginGeneratorServiceProvider

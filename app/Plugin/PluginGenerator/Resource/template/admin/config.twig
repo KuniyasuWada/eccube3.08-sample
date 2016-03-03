@@ -1,0 +1,49 @@
+{% extends 'default_frame.twig' %}
+
+{% block title %}プラグインジェネレータ{% endblock %}
+{% block sub_title %}{% endblock %}
+
+{% form_theme form 'Form/bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form-horizontal" method="post" action="{{ url('plugin_PluginGenerator_config') }}">
+                {{ form_widget(form._token) }}
+                <div class="form-group {% if form.name.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">プラグイン名を入力<span class="text-danger">*</span></label>
+                    <div class="col-sm-8">
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+                <div class="form-group {% if form.code.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">codeを入力<span class="text-danger">*</span><br><span class="small">(英数字で1文字目は必ず半角英字の大文字で入力してください) </span></label>
+                    <div class="col-sm-8">
+                        {{ form_widget(form.code) }}
+                        {{ form_errors(form.code) }}
+                    </div>
+                </div>
+                <div class="form-group {% if form.version.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">バージョンを入力<span class="text-danger">*</span><br><span class="small">(入力形式は<br>メジャー.マイナー.パッチ(x.x.x))</span></label>
+                    <div class="col-sm-8">
+                        {{ form_widget(form.version) }}
+                        {{ form_errors(form.version) }}
+                    </div>
+                </div>
+                <div class="form-group {% if form.author.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">作成者を入力<span class="text-danger">*</span><br><span class="small">(作成者名や会社名を入力してください)</span></label>
+                    <div class="col-sm-8">
+                        {{ form_widget(form.author) }}
+                        {{ form_errors(form.author) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">作成</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock main %}
